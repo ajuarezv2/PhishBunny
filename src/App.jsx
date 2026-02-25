@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import logo from "./images/reallogo.png";
 
 function App() {
   const [emailText, setEmailText] = useState("");
@@ -8,7 +9,7 @@ function App() {
 
   const analyzeEmail = () => {
     if (!emailText.trim()) {
-      setResult("📝 Please paste some email content to analyze.");
+      setResult("Please paste some email content to analyze :3");
       return;
     }
 
@@ -68,11 +69,14 @@ function App() {
 
   return (
     <div className="container">
-      <h1>🐰 PhishBunny</h1>
+      <div className="header-with-logo">
+        <img src={logo} alt="PhishBunny Logo" className="logo" />
+        <h1>PhishBunny</h1>
+      </div>
       <p>Hop into safety! Analyze emails for phishing threats in real time.</p>
 
       <textarea
-        placeholder="Paste email content here..."
+        placeholder="Paste email text content here..."
         value={emailText}
         onChange={(e) => setEmailText(e.target.value)}
       />
